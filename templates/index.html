@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Website Monitor Application{% endblock %}</title>
+        <style>
+            h1 {
+                color: #9fe1f7;
+                font-size: 3em;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+    <body> 
+        <h1>Website Monitor</h1>
+        <p>Subscribe to website monitoring</p>
+        <form action="/subscribe" method="post">
+            <label for="email">Email</label>
+            <input type="email" name="email" required>
+            <br>
+            <label for="url">URL:</label>
+            <input type="url" name="url" required>
+            <br>
+            <input type="submit" value="Subscribe">
+        </form>
+        <hr>
+        <h2>Subscriptions</h2>
+        <ul>
+            {% for email, url in subscriptions %}
+            <li>{{ email }} - {{ url }}</li>
+            {% endfor %}
+        </ul>
+    </body>
+</html>
